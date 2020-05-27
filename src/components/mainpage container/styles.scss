@@ -1,13 +1,37 @@
-.main-page-div{
-    background-color: grey;
-    min-width: 100vw;
-    min-height: 100vh;
-    .MuiIconButton-root{
-        background-color: white;
-    }
-    .add-btn{
-        position: fixed;
-        right:10px;
-        bottom: 10px;
-    }
+.main-page-div {
+  background-color: grey;
+  min-width: 100vw;
+  min-height: 100vh;
+  .MuiIconButton-root {
+    background-color: white;
+  }
+  .MuiIconButton-root:hover {
+    background-color: wheat;
+  }
+  .add-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+  }
+  .sliding-pane-div {
+    position: fixed;
+  }
+  .slide-pane__header{
+      display: none;
+  }
+}
+
+.some-custom-class{
+    // background-color: red;
+}
+.some-custom-overlay-class{
+    font-weight: bolder;
+    text-align: center;
+}
+.input-fields{
+    display: flex;
+    flex-direction: column;
+}
+.space{
+    height: 20px;
 }
