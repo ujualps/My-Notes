@@ -10,8 +10,8 @@
   }
   .add-btn {
     position: fixed;
-    right: 10px;
-    bottom: 10px;
+    right: 35px;
+    bottom: 35px;
   }
   .sliding-pane-div {
     position: fixed;
@@ -35,3 +35,7 @@
 .space{
     height: 20px;
 }
+.row-no-margin {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+} 

@@ -36,7 +36,7 @@ const MainPage = (props) => {
     if (!notes) return;
 
     return (
-      <div class="row">
+      <div className="row-no-margin row ">
         {notes.map((note) => {
           return <Card data={note} />;
         })}
@@ -46,6 +46,7 @@ const MainPage = (props) => {
 
   return (
     <div className="main-page-div">
+
       {renderNotes()}
 
       <div className="add-btn">
