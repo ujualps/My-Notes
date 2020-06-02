@@ -9,7 +9,11 @@ import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 
 import { addNote } from "../../redux/actions.js";
+
 import Card from "../card";
+import { MyHeader } from "../mainheader";
+
+import Headroom from "react-headroom";
 
 const MainPage = (props) => {
   const [showAddFields, setShowAddFields] = React.useState(false);
@@ -18,13 +22,21 @@ const MainPage = (props) => {
     heading: "",
     desc: "",
   });
+  const [isFormEmpty, setIsFormEmpty] = React.useState(true);
 
   const handleValueChange = (name) => (event) => {
     setText({ ...text, [name]: event.target.value });
+
+    if (text.heading === "" && text.desc === "") setIsFormEmpty(true);
+    else setIsFormEmpty(false);
   };
 
   const add = () => {
     // const { addNote } = props;
+    if (text.heading === "" && text.desc === "") {
+      setShowAddFields(false);
+      return;
+    }
     props.addNote(text);
     setShowAddFields(false);
     setText({ heading: "", desc: "" });
@@ -43,9 +55,17 @@ const MainPage = (props) => {
       </div>
     );
   };
+  const addButtonColor = () => {
+    if (text.heading === "" && text.desc === "") return "add-btn-root-cancel";
+    else return "add-btn-root-add";
+  };
 
   return (
     <div className="main-page-div">
+      <MyHeader />
+      {/* <Headroom>
+        <div className="new-note-btn">New Note</div>
+      </Headroom> */}
 
       {renderNotes()}
 
@@ -96,11 +116,14 @@ const MainPage = (props) => {
             />
             <div className="space"></div>
             <Button
+              classes={{
+                root: addButtonColor(),
+              }}
               onClick={() => {
                 add();
               }}
             >
-              add
+              {text.heading === "" && text.desc === "" ? "cancel" : "add"}
             </Button>
           </div>
         </SlidingPane>
