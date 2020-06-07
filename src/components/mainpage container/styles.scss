@@ -12,9 +12,11 @@
     position: fixed;
     right: 35px;
     bottom: 35px;
+    z-index: 10;
   }
   .sliding-pane-div {
     position: fixed;
+    z-index: 10;
   }
   .slide-pane__header{
       display: none;

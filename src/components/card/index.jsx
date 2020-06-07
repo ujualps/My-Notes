@@ -7,7 +7,7 @@ import { deleteNote } from "../../redux/actions.js";
 const Card = (props) => {
   const { data } = props;
   return (
-    <div className="col-sm-6 col-md-4 col-lg-3 ">
+    // <div className="col-sm-6 col-md-4 col-lg-3 ">
       <div className="card-main">
         <div className="heading">
           <li>{props.data.heading}</li>
@@ -24,7 +24,7 @@ const Card = (props) => {
           <li className="date">{data.date}</li>
         </div>
       </div>
-    </div>
+    // </div> 
   );
 };
 

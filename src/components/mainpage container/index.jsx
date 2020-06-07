@@ -14,6 +14,8 @@ import Card from "../card";
 import { MyHeader } from "../mainheader";
 
 import Headroom from "react-headroom";
+import StackGrid from "react-stack-grid";
+
 
 const MainPage = (props) => {
   const [showAddFields, setShowAddFields] = React.useState(false);
@@ -42,17 +44,30 @@ const MainPage = (props) => {
     setText({ heading: "", desc: "" });
   };
 
+  // const renderNotes = () => {
+  //   const { notes } = props;
+
+  //   if (!notes) return;
+
+  //   return (
+  //     <div className="row-no-margin row ">
+  //       {notes.map((note) => {
+  //         return <Card data={note} />;
+  //       })}
+  //     </div>
+  //   );
+  // };
   const renderNotes = () => {
     const { notes } = props;
 
     if (!notes) return;
 
     return (
-      <div className="row-no-margin row ">
+      <StackGrid columnWidth={360}>
         {notes.map((note) => {
           return <Card data={note} />;
         })}
-      </div>
+      </StackGrid>
     );
   };
   const addButtonColor = () => {
